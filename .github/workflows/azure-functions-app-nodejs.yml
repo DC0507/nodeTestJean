@@ -30,9 +30,12 @@ env:
   NODE_VERSION: '20.x'                      # set this to the node version to use (e.g. '8.x', '10.x', '12.x')
 
 jobs:
-  build-and-deploy:
-    runs-on: windows-latest # For Linux, use ubuntu-latest
+  build-and-deploy: 
+    runs-on: ubuntu-latest
     environment: dev
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@v4
