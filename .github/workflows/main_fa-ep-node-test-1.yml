@@ -25,7 +25,23 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: 'Resolve Project Dependencies Using Yarn'
+      - name: jarvis-common - install
+        run: yarn install --production
+        working-directory: jarvis-common
+ 
+      - name: jarvis-common - build
+        run: yarn build
+        working-directory: jarvis-common
+ 
+      - name: jarvis-functions - install
+        run: yarn install --production
+        working-directory: jarvis-functions
+ 
+      - name: jarvis-functions - build
+        run: yarn build
+        working-directory: jarvis-functions
+		
+	  - name: 'Resolve Project Dependencies Using Yarn'
         shell: bash
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
