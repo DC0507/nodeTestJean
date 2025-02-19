@@ -40,8 +40,8 @@ jobs:
       - name: jarvis-functions - build
         run: yarn build
         working-directory: jarvis-functions
-		
-	  - name: 'Resolve Project Dependencies Using Yarn'
+
+      - name: 'Resolve Project Dependencies Using Yarn'
         shell: bash
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
