@@ -1,0 +1,17 @@
+query ActivityLogAggregate($filter: ActivityLogAggregateFilter) {
+  activityLogAggregate(filter: $filter) {
+    max {
+      updated
+    }
+    groupBy {
+      type
+    }
+  }
+}
+
+mutation CreateOneActivityLog($input: CreateOneActivityLogInput!) {
+  createOneActivityLog(input: $input) {
+    id
+    created
+  }
+}

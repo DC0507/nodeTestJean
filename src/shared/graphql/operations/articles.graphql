@@ -1,0 +1,180 @@
+query Articles(
+  $paging: CursorPaging
+  $filter: ArticleFilter
+  $sorting: [ArticleSort!]
+) {
+  articles(paging: $paging, filter: $filter, sorting: $sorting) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    totalCount
+    edges {
+      node {
+        id
+        audience
+        title
+        created
+        updated
+        lastModifiedDate
+        content
+        status
+        sources
+        hashtags
+        locationDescription
+        location {
+          country
+          city
+          province
+          id
+          region
+        }
+        companies {
+          id
+          name
+        }
+        ofInterestTo {
+          id
+          name
+        }
+        issues {
+          id
+          name
+        }
+        sectors {
+          id
+          name
+        }
+        events {
+          id
+          name
+        }
+        groups {
+          id
+          name
+        }
+        campaigns {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+
+query ArticlesForSearch(
+  $paging: CursorPaging
+  $filter: ArticleFilter
+  $sorting: [ArticleSort!]
+) {
+  articles(paging: $paging, filter: $filter, sorting: $sorting) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    totalCount
+    edges {
+      node {
+        id
+        audience
+        title
+        created
+        updated
+        lastModifiedDate
+        content
+        status
+        sources
+        hashtags
+        locationDescription
+        location {
+          country
+          city
+          province
+          id
+          region
+        }
+        companies {
+          id
+          name
+        }
+        ofInterestTo {
+          id
+          name
+        }
+        issues {
+          id
+          name
+        }
+        sectors {
+          id
+          name
+        }
+        events {
+          id
+          name
+        }
+        groups {
+          id
+          name
+        }
+        campaigns {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+
+query Article($articleId: ID!) {
+  article(id: $articleId) {
+    id
+    audience
+    title
+    created
+    updated
+    lastModifiedDate
+    content
+    status
+    sources
+    hashtags
+    locationDescription
+    alertNotification
+    location {
+      country
+      city
+      province
+      id
+      region
+    }
+    companies {
+      id
+      name
+    }
+    ofInterestTo {
+      id
+      name
+    }
+    issues {
+      id
+      name
+    }
+    sectors {
+      id
+      name
+    }
+    events {
+      id
+      name
+    }
+    groups {
+      id
+      name
+    }
+    campaigns {
+      id
+      name
+    }
+  }
+}
+

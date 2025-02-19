@@ -1,0 +1,20 @@
+query UserContext($email: String!) {
+  getUserContext(email: $email) {
+    access
+    audiences
+    roles
+    company
+    companyId
+    email
+    type
+  }
+}
+
+query CheckUserContext($email: String!) {
+  getUserContext(email: $email) {
+    email
+    type
+    audiences
+    access
+  }
+}

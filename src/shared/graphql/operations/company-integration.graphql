@@ -1,0 +1,41 @@
+query CompanyIntegrationsLight($filter: CompanyIntegrationFilter!) {
+  companyIntegrations(filter: $filter) {
+    edges {
+      node {
+        client {
+          id
+          name
+        }
+        type
+        config
+      }
+    }
+  }
+}
+
+query CompanyIntegrations($filter: CompanyIntegrationFilter!) {
+  companyIntegrations(filter: $filter) {
+    edges {
+      node {
+        client {
+          id
+          name
+          subscriptions(filter: { isActive: { is: true } }) {
+            id
+            isActive
+            startDate
+            endDate
+            audiences
+          }
+          sectors {
+            name
+          }
+        }
+        id
+        type
+        config
+        preprocessor
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+query Actions(
+  $paging: CursorPaging
+  $filter: ActionFilter
+  $sorting: [ActionSort!]
+) {
+  actions(paging: $paging, filter: $filter, sorting: $sorting) {
+    edges {
+      node {
+        id
+        audience
+        lastModifiedDate
+        actionStatus
+        content
+        date
+        endDate
+        ongoing
+        title
+        status
+        impact
+        hashtags
+        type
+        going
+        interested
+        locationDescription
+        sources
+        latitude
+        longitude
+        created
+        updated
+        createdBy
+        location {
+          country
+          city
+          province
+          id
+          region
+        }
+
+        companies {
+          id
+          name
+        }
+        ofInterestTo {
+          id
+          name
+        }
+        issues {
+          id
+          name
+        }
+        sectors {
+          id
+          name
+        }
+        events {
+          id
+          name
+        }
+        tactic {
+          id
+          name
+          protest
+        }
+        groups {
+          id
+          name
+        }
+      }
+    }
+    totalCount
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+
+query ActionsForSearch(
+  $paging: CursorPaging
+  $filter: ActionFilter
+  $sorting: [ActionSort!]
+) {
+  actions(paging: $paging, filter: $filter, sorting: $sorting) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    totalCount
+    edges {
+      node {
+        id
+        lastModifiedDate
+        title
+        date
+        created
+        updated
+        content
+        locationDescription
+        latitude
+        longitude
+        impact
+        location {
+          city
+          province
+          country
+          region
+        }
+        audience
+        issues {
+          id
+          name
+        }
+        sectors {
+          name
+        }
+        events {
+          name
+        }
+        tactic {
+          name
+          protest
+        }
+        companies {
+          name
+        }
+        ofInterestTo {
+          name
+        }
+        groups {
+          name
+        }
+        campaigns {
+          name
+        }
+      }
+    }
+  }
+}
+
+query Action($actionId: ID!) {
+  action(id: $actionId) {
+    id
+    audience
+    title
+    content
+    status
+    actionStatus
+    date
+    endDate
+    ongoing
+    impact
+    interested
+    going
+    sources
+    hashtags
+    status
+    type
+    alertNotification
+    lastModifiedDate
+    created
+    updated
+    latitude
+    longitude
+    locationDescription
+    location {
+      id
+      city
+      province
+      country
+      region
+    }
+    sectors {
+      id
+      name
+    }
+    issues {
+      id
+      name
+    }
+    campaigns {
+      id
+      name
+    }
+    groups {
+      id
+      name
+    }
+    events {
+      id
+      name
+    }
+    companies {
+      id
+      name
+    }
+    ofInterestTo {
+      id
+      name
+    }
+    tactic {
+      id
+      name
+      protest
+    }
+  }
+}

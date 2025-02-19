@@ -1,0 +1,12 @@
+query CompanyContacts($filter: CompanyContactFilter!) {
+  companyContacts(filter: $filter) {
+    edges {
+      node {
+        email
+        portalPreferences {
+          preferences
+        }
+      }
+    }
+  }
+}

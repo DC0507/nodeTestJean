@@ -1,0 +1,6 @@
+query PostsDeletedSince($since: DateTime!) {
+  statsPostsDeletedSince(since: $since) {
+    id
+    type
+  }
+}

@@ -1,0 +1,13 @@
+query AdUsers {
+  adUsers {
+    edges {
+      node {
+        givenName
+        surname
+        roles
+        email
+        systemEmails
+      }
+    }
+  }
+}

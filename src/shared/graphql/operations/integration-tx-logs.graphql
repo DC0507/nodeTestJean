@@ -1,0 +1,25 @@
+mutation createManyIntegrationTxLogs(
+  $input: CreateManyIntegrationTxLogsInput!
+) {
+  createManyIntegrationTxLogs(input: $input) {
+    id
+  }
+}
+
+query IntegrationTxLogs(
+  $filter: IntegrationTxLogFilter!
+  $paging: CursorPaging!
+) {
+  integrationTxLogs(filter: $filter, paging: $paging) {
+    edges {
+      node {
+        eventUpdated
+        eventDate
+        eventId
+        companyId
+        id
+        type
+      }
+    }
+  }
+}

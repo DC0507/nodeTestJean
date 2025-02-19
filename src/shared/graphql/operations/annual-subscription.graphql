@@ -1,0 +1,103 @@
+query AnnualSubscriptions($filter: AnnualSubscriptionFilter) {
+  annualSubscriptions(filter: $filter) {
+    edges {
+      node {
+        id
+        client {
+          id
+          name
+          contacts(filter: { inActive: { is: false } }) {
+            inActive
+            email
+            portalPreferences {
+              preferences
+            }
+          }
+          integrations {
+            type
+            config
+          }
+        }
+        access
+        audiences
+        isActive
+        type
+      }
+      cursor
+    }
+    totalCount
+  }
+}
+
+query AnnualSubscriptionsSummary($filter: AnnualSubscriptionFilter) {
+  annualSubscriptions(filter: $filter) {
+    edges {
+      node {
+        client {
+          id
+          name
+        }
+        startDate
+        endDate
+        type
+        isActive
+        audiences
+        access
+      }
+    }
+  }
+}
+
+query AnnualSubscription($annualSubscriptionId: ID!) {
+  annualSubscription(id: $annualSubscriptionId) {
+    isActive
+    access
+    audiences
+    type
+    startDate
+    endDate
+    client {
+      id
+      name
+      contacts(filter: { inActive: { is: false } }) {
+        email
+        portalPreferences {
+          preferences
+        }
+      }
+      sectors {
+        id
+        name
+      }
+    }
+  }
+}
+
+query Emails {
+  getAnnualSubscriptionAccessType {
+    emails {
+      dailyUpdate
+      dps
+      fysa
+      monthlySector
+      proactiveAlerts
+      weeklyOutlook
+    }
+    constraints {
+      companyProfile
+      dpsOnDaysOfWeek
+      foi
+      longFormEmails
+      outlook48
+    }
+    portal {
+      annualReports
+      briefings
+      enabled
+      excelExport
+      reports
+      webinars
+      weeklyOutlooks
+    }
+  }
+}

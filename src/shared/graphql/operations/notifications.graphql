@@ -1,0 +1,10 @@
+mutation createOneClientNotification(
+  $input: CreateOneClientNotificationInput!
+) {
+  createOneClientNotification(input: $input) {
+    id
+    endDate
+    notice
+    startDate
+  }
+}

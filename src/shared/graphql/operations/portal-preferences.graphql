@@ -1,0 +1,29 @@
+query PortalPreferences($filter: PortalPreferenceFilter!) {
+  portalPreferences(filter: $filter) {
+    edges {
+      node {
+        email
+        preferences
+      }
+    }
+  }
+}
+
+query PortalPreferencesAlerts(
+  $filter: PortalPreferenceFilter!
+  $paging: CursorPaging
+) {
+  portalPreferences(filter: $filter, paging: $paging) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    totalCount
+    edges {
+      node {
+        alerts
+        email
+      }
+    }
+  }
+}

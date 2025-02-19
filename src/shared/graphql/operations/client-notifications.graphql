@@ -1,0 +1,12 @@
+query ClientNotifications($filter: ClientNotificationFilter) {
+  clientNotifications(filter: $filter) {
+    edges {
+      node {
+        startDate
+        endDate
+        notice
+        isActive
+      }
+    }
+  }
+}
